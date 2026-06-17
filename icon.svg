@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Deep navy background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a4a"/>
+      <stop offset="100%" stop-color="#080818"/>
+    </radialGradient>
+
+    <!-- Blue shimmer for ring -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a5fc4"/>
+      <stop offset="35%" stop-color="#5a90f0"/>
+      <stop offset="65%" stop-color="#3a70d8"/>
+      <stop offset="100%" stop-color="#1a40a0"/>
+    </linearGradient>
+
+    <!-- Monogram gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8ec0ff"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#5a90d8"/>
+    </linearGradient>
+
+    <!-- Inner glow filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Subtle drop shadow -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#bgGrad)"/>
+
+  <!-- Outer decorative ring -->
+  <circle cx="256" cy="256" r="230" fill="none" stroke="url(#ringGrad)" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- Inner decorative ring (dashed) -->
+  <circle cx="256" cy="256" r="212" fill="none" stroke="rgba(100,150,240,0.3)" stroke-width="1" stroke-dasharray="8 6"/>
+
+  <!-- Subtle glow orb behind text -->
+  <circle cx="256" cy="256" r="140" fill="rgba(60,100,220,0.07)"/>
+
+  <!-- Corner ornaments at the four quadrants of the ring -->
+  <g fill="rgba(100,160,255,0.55)">
+    <!-- Top -->
+    <polygon points="256,32 263,50 256,45 249,50" />
+    <!-- Bottom -->
+    <polygon points="256,480 263,462 256,467 249,462" />
+    <!-- Left -->
+    <polygon points="32,256 50,263 45,256 50,249" />
+    <!-- Right -->
+    <polygon points="480,256 462,263 467,256 462,249" />
+  </g>
+
+  <!-- Small diamond ornaments between quadrants -->
+  <g fill="rgba(100,160,255,0.35)">
+    <rect x="253" y="37" width="6" height="6" transform="rotate(45 256 40)"/>
+    <rect x="253" y="469" width="6" height="6" transform="rotate(45 256 472)"/>
+    <rect x="37" y="253" width="6" height="6" transform="rotate(45 40 256)"/>
+    <rect x="469" y="253" width="6" height="6" transform="rotate(45 472 256)"/>
+  </g>
+
+  <!-- "EC" Monogram — hand-crafted paths for Cinzel-style serif letterforms -->
+  <!-- E -->
+  <g filter="url(#shadow)">
+    <!-- E: vertical stroke -->
+    <rect x="122" y="168" width="22" height="176" fill="url(#textGrad)" rx="2"/>
+    <!-- E: top horizontal -->
+    <rect x="122" y="168" width="106" height="20" fill="url(#textGrad)" rx="2"/>
+    <!-- E: middle horizontal (slightly shorter) -->
+    <rect x="122" y="246" width="90" height="18" fill="url(#textGrad)" rx="2"/>
+    <!-- E: bottom horizontal -->
+    <rect x="122" y="324" width="106" height="20" fill="url(#textGrad)" rx="2"/>
+  </g>
+
+  <!-- C -->
+  <g filter="url(#shadow)">
+    <!-- C: outer arc — drawn as a thick arc path -->
+    <path d="M 368,178
+             A 118,118 0 1 0 368,334"
+          fill="none"
+          stroke="url(#textGrad)"
+          stroke-width="22"
+          stroke-linecap="round"/>
+    <!-- C: inner cutout already handled by stroke; add serifs as caps -->
+    <!-- Top serif cap -->
+    <rect x="340" y="168" width="48" height="16" fill="url(#textGrad)" rx="2"/>
+    <!-- Bottom serif cap -->
+    <rect x="340" y="328" width="48" height="16" fill="url(#textGrad)" rx="2"/>
+  </g>
+
+  <!-- Thin baseline rule under the monogram -->
+  <line x1="122" y1="362" x2="390" y2="362" stroke="rgba(100,160,255,0.3)" stroke-width="1.5"/>
+
+  <!-- "COLUMBIA" micro-text beneath the rule -->
+  <text
+    x="256" y="390"
+    font-family="Georgia, serif"
+    font-size="22"
+    font-weight="normal"
+    letter-spacing="7"
+    text-anchor="middle"
+    fill="rgba(120,170,255,0.55)"
+  >COLUMBIA</text>
+</svg>
