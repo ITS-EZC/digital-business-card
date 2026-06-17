@@ -3,99 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emeric Chang | Attorney at Law</title>
+  <title>Emeric Chang | Columbia University</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1a1a2e">
+  <meta name="theme-color" content="#0a0a1a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'EB Garamond', Georgia, serif;
-      background: #0d0d1a;
+      background: #0a0a1a;
       background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(180,150,80,0.04) 60px, rgba(180,150,80,0.04) 61px),
-        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(180,150,80,0.04) 60px, rgba(180,150,80,0.04) 61px);
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(100,140,200,0.03) 60px, rgba(100,140,200,0.03) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(100,140,200,0.03) 60px, rgba(100,140,200,0.03) 61px);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       padding: 20px;
     }
+
     .card-wrapper { width: 100%; max-width: 420px; }
+
     .card {
-      background: linear-gradient(160deg, #12122a 0%, #1a1a3a 50%, #0f0f20 100%);
-      border: 1px solid rgba(180,150,80,0.4);
+      background: linear-gradient(160deg, #0e0e22 0%, #151530 50%, #0a0a1c 100%);
+      border: 1px solid rgba(100, 140, 220, 0.35);
       border-radius: 4px;
       width: 100%;
-      box-shadow: 0 0 0 1px rgba(180,150,80,0.1), 0 20px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(180,150,80,0.2);
+      box-shadow:
+        0 0 0 1px rgba(100, 140, 220, 0.08),
+        0 20px 60px rgba(0, 0, 0, 0.85),
+        inset 0 1px 0 rgba(100, 140, 220, 0.15);
       overflow: hidden;
       position: relative;
     }
+
+    /* Columbia blue top/bottom bars */
     .card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, transparent, #b49650, #d4af6a, #b49650, transparent);
+      background: linear-gradient(90deg, transparent, #4a7fd4, #75a0e8, #4a7fd4, transparent);
     }
     .card::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, transparent, #b49650, #d4af6a, #b49650, transparent);
+      background: linear-gradient(90deg, transparent, #4a7fd4, #75a0e8, #4a7fd4, transparent);
     }
+
     .card-header {
       padding: 36px 36px 24px;
       text-align: center;
-      border-bottom: 1px solid rgba(180,150,80,0.2);
+      border-bottom: 1px solid rgba(100, 140, 220, 0.18);
     }
+
+    /* Crown icon seal - Columbia reference */
     .seal {
-      width: 90px; height: 90px;
+      width: 86px; height: 86px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #1e1e40, #2a2a50);
-      border: 2px solid rgba(180,150,80,0.6);
+      background: linear-gradient(135deg, #10103a, #1a1a50);
+      border: 2px solid rgba(100, 140, 220, 0.55);
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 20px;
-      box-shadow: 0 0 0 4px rgba(180,150,80,0.1), 0 8px 24px rgba(0,0,0,0.6);
-      font-size: 36px; position: relative;
+      box-shadow: 0 0 0 4px rgba(100, 140, 220, 0.08), 0 8px 24px rgba(0,0,0,0.6);
+      font-size: 34px;
+      position: relative;
     }
     .seal::after {
       content: '';
-      position: absolute; inset: 4px;
+      position: absolute; inset: 5px;
       border-radius: 50%;
-      border: 1px dashed rgba(180,150,80,0.3);
+      border: 1px dashed rgba(100, 140, 220, 0.28);
     }
+
     .name {
       font-family: 'Cinzel', 'Times New Roman', serif;
-      font-size: 22px; font-weight: 600;
-      color: #d4af6a;
+      font-size: 21px; font-weight: 600;
+      color: #7aaff5;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 6px;
-      text-shadow: 0 0 20px rgba(212,175,106,0.3);
+      text-shadow: 0 0 24px rgba(100, 160, 255, 0.25);
     }
-    .credentials {
-      font-size: 13px;
-      color: rgba(180,150,80,0.7);
-      letter-spacing: 0.2em;
+
+    .institution {
+      font-family: 'Cinzel', serif;
+      font-size: 11.5px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      color: rgba(100, 140, 220, 0.65);
+      margin-bottom: 10px;
     }
-    .title { font-style: italic; font-size: 17px; color: rgba(220,210,190,0.8); margin-bottom: 4px; }
-    .firm { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.15em; color: rgba(180,150,80,0.6); text-transform: uppercase; }
-    .divider { display: flex; align-items: center; gap: 12px; padding: 0 36px; margin: 20px 0; }
-    .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(180,150,80,0.4), transparent); }
-    .divider-ornament { color: rgba(180,150,80,0.6); font-size: 14px; letter-spacing: 4px; }
+
+    .tagline {
+      font-style: italic;
+      font-size: 15.5px;
+      color: rgba(200, 210, 235, 0.7);
+      line-height: 1.5;
+    }
+
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      padding: 0 36px; margin: 18px 0;
+    }
+    .divider-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(100, 140, 220, 0.35), transparent);
+    }
+    .divider-ornament { color: rgba(100, 140, 220, 0.5); font-size: 13px; letter-spacing: 4px; }
+
     .card-body { padding: 0 36px 30px; }
-    .practice-areas { text-align: center; margin-bottom: 24px; }
-    .practice-label { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(180,150,80,0.5); margin-bottom: 8px; }
-    .practice-list { font-size: 14px; color: rgba(220,210,190,0.6); font-style: italic; line-height: 1.6; }
+
+    .focus-areas { text-align: center; margin-bottom: 22px; }
+    .focus-label {
+      font-size: 10.5px; letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(100, 140, 220, 0.45);
+      margin-bottom: 7px;
+    }
+    .focus-list {
+      font-size: 14px;
+      color: rgba(200, 210, 235, 0.58);
+      font-style: italic; line-height: 1.6;
+    }
+
     .contact-grid { display: flex; flex-direction: column; gap: 10px; }
+
     .btn {
       display: flex; align-items: center; gap: 14px;
-      background: rgba(180,150,80,0.06);
-      border: 1px solid rgba(180,150,80,0.25);
-      color: rgba(220,210,190,0.85);
+      background: rgba(100, 140, 220, 0.05);
+      border: 1px solid rgba(100, 140, 220, 0.2);
+      color: rgba(200, 215, 245, 0.82);
       padding: 13px 18px; border-radius: 2px;
       text-decoration: none;
       font-family: 'EB Garamond', Georgia, serif;
@@ -103,50 +143,77 @@
       transition: all 0.25s ease;
       position: relative; overflow: hidden;
     }
-    .btn::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: rgba(180,150,80,0); transition: background 0.25s ease; }
-    .btn:hover { background: rgba(180,150,80,0.12); border-color: rgba(180,150,80,0.5); color: #d4af6a; }
-    .btn:hover::before { background: rgba(180,150,80,0.8); }
-    .btn-icon { font-size: 16px; flex-shrink: 0; width: 20px; text-align: center; }
+    .btn::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 2px;
+      background: transparent;
+      transition: background 0.25s ease;
+    }
+    .btn:hover {
+      background: rgba(100, 140, 220, 0.1);
+      border-color: rgba(100, 140, 220, 0.45);
+      color: #7aaff5;
+    }
+    .btn:hover::before { background: rgba(100, 160, 255, 0.7); }
+
+    .btn-icon { font-size: 15px; flex-shrink: 0; width: 20px; text-align: center; }
     .btn-text { flex: 1; }
-    .btn-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(180,150,80,0.5); display: block; margin-bottom: 1px; }
+    .btn-label {
+      font-size: 9.5px; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(100, 140, 220, 0.45);
+      display: block; margin-bottom: 2px;
+    }
     .btn-value { font-size: 14px; color: inherit; }
-    .card-footer { padding: 16px 36px 28px; text-align: center; border-top: 1px solid rgba(180,150,80,0.15); }
-    .bar-number { font-size: 12px; letter-spacing: 0.15em; color: rgba(180,150,80,0.4); font-style: italic; }
+
+    .card-footer {
+      padding: 14px 36px 26px;
+      text-align: center;
+      border-top: 1px solid rgba(100, 140, 220, 0.12);
+    }
+    .footer-text {
+      font-size: 11.5px; letter-spacing: 0.12em;
+      color: rgba(100, 140, 220, 0.35);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
   <div class="card-wrapper">
     <div class="card">
+
       <div class="card-header">
-        <div class="seal">&#9878;</div>
+        <div class="seal">&#127981;</div>
         <div class="name">Emeric Chang</div>
-        <div class="credentials">J.D.</div>
-        <div class="title">Attorney at Law</div>
-        <div class="firm">Chang Law Group</div>
+        <div class="institution">Columbia University &middot; Class of 2026</div>
+        <div class="tagline">Political Science &amp; Computer Science</div>
       </div>
+
       <div class="divider">
         <div class="divider-line"></div>
         <div class="divider-ornament">&#10022; &#10022; &#10022;</div>
         <div class="divider-line"></div>
       </div>
+
       <div class="card-body">
-        <div class="practice-areas">
-          <div class="practice-label">Areas of Practice</div>
-          <div class="practice-list">Corporate Law &bull; Contracts &bull; Litigation</div>
+        <div class="focus-areas">
+          <div class="focus-label">Interests</div>
+          <div class="focus-list">Tech Policy &bull; Civic Tech &bull; Software Engineering</div>
         </div>
+
         <div class="contact-grid">
-          <a class="btn" href="mailto:emeric@changlawgroup.com">
+          <a class="btn" href="mailto:ec@columbia.edu">
             <span class="btn-icon">&#9993;</span>
             <span class="btn-text">
-              <span class="btn-label">Electronic Mail</span>
-              <span class="btn-value">emeric@changlawgroup.com</span>
+              <span class="btn-label">Email</span>
+              <span class="btn-value">ec@columbia.edu</span>
             </span>
           </a>
-          <a class="btn" href="tel:+1234567890">
-            <span class="btn-icon">&#9742;</span>
+          <a class="btn" href="https://github.com/ITS-EZC" target="_blank" rel="noopener">
+            <span class="btn-icon">&#9670;</span>
             <span class="btn-text">
-              <span class="btn-label">Telephone</span>
-              <span class="btn-value">(123) 456-7890</span>
+              <span class="btn-label">GitHub</span>
+              <span class="btn-value">github.com/ITS-EZC</span>
             </span>
           </a>
           <a class="btn" href="https://linkedin.com/in/emericchang" target="_blank" rel="noopener">
@@ -156,20 +223,23 @@
               <span class="btn-value">linkedin.com/in/emericchang</span>
             </span>
           </a>
-          <a class="btn" href="https://changlawgroup.com" target="_blank" rel="noopener">
-            <span class="btn-icon">&#9878;</span>
+          <a class="btn" href="tel:+1234567890">
+            <span class="btn-icon">&#9742;</span>
             <span class="btn-text">
-              <span class="btn-label">Website</span>
-              <span class="btn-value">changlawgroup.com</span>
+              <span class="btn-label">Phone</span>
+              <span class="btn-value">(123) 456-7890</span>
             </span>
           </a>
         </div>
       </div>
+
       <div class="card-footer">
-        <div class="bar-number">Confidential &amp; Privileged Communication</div>
+        <div class="footer-text">Columbia University &mdash; New York, NY</div>
       </div>
+
     </div>
   </div>
+
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
