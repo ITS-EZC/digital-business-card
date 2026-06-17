@@ -1,16 +1,15 @@
-const CACHE_NAME = 'chang-law-card-v1';
+const CACHE_NAME = 'emeric-card-v2';
 const ASSETS = [
   'index.html',
   'manifest.json',
+  'icon.svg',
   'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600&display=swap'
 ];
 
 // Install: cache all core assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
   );
   self.skipWaiting();
 });
@@ -19,36 +18,23 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
     )
   );
   self.clients.claim();
 });
 
-// Fetch: serve from cache, fall back to network
+// Fetch: cache-first, then network
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cached) => {
       return cached || fetch(event.request).then((response) => {
-        // Cache new successful GET requests
-        if (
-          event.request.method === 'GET' &&
-          response.status === 200
-        ) {
+        if (event.request.method === 'GET' && response.status === 200) {
           const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, clone);
-          });
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
         return response;
       });
-    }).catch(() => {
-      // Offline fallback: return cached index.html
-      return caches.match('index.html');
-    })
+    }).catch(() => caches.match('index.html'))
   );
 });
