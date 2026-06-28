@@ -2,249 +2,630 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emeric Chang | Columbia University</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0a0a1a">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Card of Introduction</title>
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="My Card">
+  <meta name="theme-color" content="#1A2744">
+  <!-- Apple touch icon: wax seal SVG -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%231A2744'/%3E%3Ccircle cx='90' cy='90' r='78' fill='%238B1A2F'/%3E%3Ccircle cx='90' cy='90' r='70' fill='none' stroke='%23C9A84C' stroke-width='3'/%3E%3Ccircle cx='90' cy='90' r='60' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3Ctext x='90' y='107' text-anchor='middle' font-size='52' fill='%23F5E6C8' font-family='serif'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --parchment:  #F2E0B6;
+      --parch-mid:  #E8D09A;
+      --navy:       #1A2744;
+      --burgundy:   #8B1A2F;
+      --gold:       #C9A84C;
+      --gold-lt:    #E4C97A;
+      --walnut:     #180E06;
+      --ink:        #1C1A14;
+    }
+
+    html { height: 100%; }
+
     body {
-      font-family: 'EB Garamond', Georgia, serif;
-      background: #0a0a1a;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background-color: var(--walnut);
       background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(100,140,200,0.03) 60px, rgba(100,140,200,0.03) 61px),
-        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(100,140,200,0.03) 60px, rgba(100,140,200,0.03) 61px);
+        radial-gradient(ellipse at 25% 20%, #2E1A08 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 80%, #0E0804 0%, transparent 55%),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 60px,
+          rgba(255,255,255,0.012) 60px,
+          rgba(255,255,255,0.012) 61px
+        );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: env(safe-area-inset-top, 24px) 20px env(safe-area-inset-bottom, 24px);
+      padding-top: max(env(safe-area-inset-top), 24px);
+      padding-bottom: max(env(safe-area-inset-bottom), 24px);
+      font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 390px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* ────────────── CARD ────────────── */
+    .card {
+      width: 100%;
+      background-color: var(--parchment);
+      background-image:
+        radial-gradient(ellipse at 18% 22%, rgba(175,138,72,0.38) 0%, transparent 52%),
+        radial-gradient(ellipse at 82% 78%, rgba(155,118,55,0.30) 0%, transparent 52%),
+        radial-gradient(ellipse at 55% 35%, rgba(248,236,198,0.55) 0%, transparent 48%),
+        radial-gradient(ellipse at 30% 80%, rgba(185,150,85,0.18) 0%, transparent 40%);
+      /* Triple border: gold → navy gap → gold outer */
+      border: 2px solid var(--gold);
+      box-shadow:
+        0 0 0 5px var(--navy),
+        0 0 0 7px var(--gold),
+        0 16px 56px rgba(0, 0, 0, 0.72),
+        0 6px 20px rgba(0, 0, 0, 0.45),
+        inset 0 0 80px rgba(175,142,70,0.14);
+    }
+
+    .card-body {
+      padding: 28px 32px 26px;
+    }
+
+    /* ── Header ── */
+    .hdr {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .hdr-ornament {
+      display: block;
+      color: var(--gold);
+      font-size: 16px;
+      letter-spacing: 10px;
+      margin-bottom: 7px;
+      text-indent: 10px;
+    }
+    .hdr-label {
+      font-family: 'Cinzel', 'Times New Roman', serif;
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-indent: 6px;
+    }
+
+    /* ── Ruled lines ── */
+    .rule-single {
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.65;
+    }
+    .rule-double {
+      height: 8px;
+      background:
+        linear-gradient(
+          to bottom,
+          var(--gold) 0px, var(--gold) 2px,
+          transparent 2px, transparent 6px,
+          var(--gold) 6px, var(--gold) 8px
+        );
+      opacity: 0.85;
+    }
+
+    /* ── Name Section ── */
+    .name-block {
+      text-align: center;
+      padding: 22px 0 20px;
+    }
+    .card-name {
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: 1.5px;
+      line-height: 1.15;
+      margin-bottom: 9px;
+    }
+    .card-jobtitle {
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--burgundy);
+      line-height: 1.3;
+    }
+    .card-company {
+      margin-top: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.7;
+      text-indent: 4.5px;
+    }
+
+    /* ── Contact List ── */
+    .contact-list {
+      list-style: none;
+      margin: 16px 0;
+    }
+    .contact-list li {
+      border-bottom: 1px solid rgba(201,168,76,0.38);
+    }
+    .contact-list li:last-child { border-bottom: none; }
+
+    .clink {
+      display: grid;
+      grid-template-columns: 20px 50px 1fr;
+      align-items: center;
+      column-gap: 7px;
+      padding: 6px 0;
+      text-decoration: none;
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .clink:active .c-value { color: var(--burgundy); }
+
+    .c-icon {
+      font-size: 12px;
+      color: var(--gold);
+      text-align: center;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .c-label {
+      font-family: 'Cinzel', serif;
+      font-size: 7.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      line-height: 1;
+      text-indent: 2px;
+    }
+    .c-value {
+      font-size: 13.5px;
+      color: var(--navy);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.15s;
+    }
+
+    /* ── Wax Seal ── */
+    .seal-row {
       display: flex;
       justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+      padding: 16px 0 10px;
     }
+    .seal-svg { overflow: visible; }
 
-    .card-wrapper { width: 100%; max-width: 420px; }
-
-    .card {
-      background: linear-gradient(160deg, #0e0e22 0%, #151530 50%, #0a0a1c 100%);
-      border: 1px solid rgba(100, 140, 220, 0.35);
-      border-radius: 4px;
-      width: 100%;
-      box-shadow:
-        0 0 0 1px rgba(100, 140, 220, 0.08),
-        0 20px 60px rgba(0, 0, 0, 0.85),
-        inset 0 1px 0 rgba(100, 140, 220, 0.15);
-      overflow: hidden;
-      position: relative;
+    /* ────────────── ACTIONS ────────────── */
+    .actions {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
-
-    /* Columbia blue top/bottom bars */
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, transparent, #4a7fd4, #75a0e8, #4a7fd4, transparent);
-    }
-    .card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, transparent, #4a7fd4, #75a0e8, #4a7fd4, transparent);
-    }
-
-    .card-header {
-      padding: 36px 36px 24px;
-      text-align: center;
-      border-bottom: 1px solid rgba(100, 140, 220, 0.18);
-    }
-
-    /* Crown icon seal - Columbia reference */
-    .seal {
-      width: 86px; height: 86px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #10103a, #1a1a50);
-      border: 2px solid rgba(100, 140, 220, 0.55);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      box-shadow: 0 0 0 4px rgba(100, 140, 220, 0.08), 0 8px 24px rgba(0,0,0,0.6);
-      font-size: 34px;
-      position: relative;
-    }
-    .seal::after {
-      content: '';
-      position: absolute; inset: 5px;
-      border-radius: 50%;
-      border: 1px dashed rgba(100, 140, 220, 0.28);
-    }
-
-    .name {
+    .btn {
       font-family: 'Cinzel', 'Times New Roman', serif;
-      font-size: 21px; font-weight: 600;
-      color: #7aaff5;
-      letter-spacing: 0.12em;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 6px;
-      text-shadow: 0 0 24px rgba(100, 160, 255, 0.25);
+      text-indent: 3px;
+      padding: 9px 17px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--parchment);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      -webkit-appearance: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
+    .btn:hover   { background: var(--gold);     color: var(--navy);      }
+    .btn:active  { background: var(--gold-lt);  color: var(--navy);      }
+    .btn-install { border-color: var(--burgundy); color: rgba(242,224,182,0.75); }
+    .btn-install:hover  { background: var(--burgundy); color: var(--parchment); }
+    .btn-install:active { background: #7a1628;          color: var(--parchment); }
 
-    .institution {
+    /* ────────────── QR PANEL ────────────── */
+    .qr-panel {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      background-color: var(--parchment);
+      background-image:
+        radial-gradient(ellipse at 30% 30%, rgba(175,138,72,0.25) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 70%, rgba(155,118,55,0.2)  0%, transparent 55%);
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 0 5px var(--navy), 0 0 0 7px var(--gold);
+      padding: 22px 20px;
+    }
+    .qr-panel.open { display: flex; }
+    .qr-label {
       font-family: 'Cinzel', serif;
-      font-size: 11.5px;
-      letter-spacing: 0.18em;
+      font-size: 8px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: rgba(100, 140, 220, 0.65);
-      margin-bottom: 10px;
+      text-indent: 5px;
+      color: var(--navy);
     }
-
-    .tagline {
+    .qr-subtext {
+      font-size: 12px;
       font-style: italic;
-      font-size: 15.5px;
-      color: rgba(200, 210, 235, 0.7);
+      color: var(--burgundy);
+      text-align: center;
+    }
+    #qr-target canvas,
+    #qr-target img { display: block; }
+
+    /* ────────────── INSTALL BANNER ────────────── */
+    #install-banner { display: none; }
+
+    /* ────────────── FOOTER ────────────── */
+    .footer {
+      font-size: 11px;
+      font-style: italic;
+      color: rgba(242,224,182,0.28);
+      text-align: center;
       line-height: 1.5;
     }
 
-    .divider {
-      display: flex; align-items: center; gap: 12px;
-      padding: 0 36px; margin: 18px 0;
-    }
-    .divider-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(100, 140, 220, 0.35), transparent);
-    }
-    .divider-ornament { color: rgba(100, 140, 220, 0.5); font-size: 13px; letter-spacing: 4px; }
-
-    .card-body { padding: 0 36px 30px; }
-
-    .focus-areas { text-align: center; margin-bottom: 22px; }
-    .focus-label {
-      font-size: 10.5px; letter-spacing: 0.25em;
+    /* ────────────── TOAST ────────────── */
+    #toast {
+      position: fixed;
+      bottom: max(env(safe-area-inset-bottom), 28px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--parchment);
+      border: 1px solid var(--gold);
+      padding: 10px 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      text-indent: 2px;
       text-transform: uppercase;
-      color: rgba(100, 140, 220, 0.45);
-      margin-bottom: 7px;
+      white-space: nowrap;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.28s ease;
     }
-    .focus-list {
-      font-size: 14px;
-      color: rgba(200, 210, 235, 0.58);
-      font-style: italic; line-height: 1.6;
-    }
-
-    .contact-grid { display: flex; flex-direction: column; gap: 10px; }
-
-    .btn {
-      display: flex; align-items: center; gap: 14px;
-      background: rgba(100, 140, 220, 0.05);
-      border: 1px solid rgba(100, 140, 220, 0.2);
-      color: rgba(200, 215, 245, 0.82);
-      padding: 13px 18px; border-radius: 2px;
-      text-decoration: none;
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 15px;
-      transition: all 0.25s ease;
-      position: relative; overflow: hidden;
-    }
-    .btn::before {
-      content: ''; position: absolute;
-      left: 0; top: 0; bottom: 0; width: 2px;
-      background: transparent;
-      transition: background 0.25s ease;
-    }
-    .btn:hover {
-      background: rgba(100, 140, 220, 0.1);
-      border-color: rgba(100, 140, 220, 0.45);
-      color: #7aaff5;
-    }
-    .btn:hover::before { background: rgba(100, 160, 255, 0.7); }
-
-    .btn-icon { font-size: 15px; flex-shrink: 0; width: 20px; text-align: center; }
-    .btn-text { flex: 1; }
-    .btn-label {
-      font-size: 9.5px; letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(100, 140, 220, 0.45);
-      display: block; margin-bottom: 2px;
-    }
-    .btn-value { font-size: 14px; color: inherit; }
-
-    .card-footer {
-      padding: 14px 36px 26px;
-      text-align: center;
-      border-top: 1px solid rgba(100, 140, 220, 0.12);
-    }
-    .footer-text {
-      font-size: 11.5px; letter-spacing: 0.12em;
-      color: rgba(100, 140, 220, 0.35);
-      font-style: italic;
-    }
+    #toast.show { opacity: 1; }
   </style>
 </head>
 <body>
-  <div class="card-wrapper">
-    <div class="card">
 
-      <div class="card-header">
-        <div class="seal">&#127981;</div>
-        <div class="name">Emeric Chang</div>
-        <div class="institution">Columbia University &middot; Class of 2026</div>
-        <div class="tagline">Political Science &amp; Computer Science</div>
+<div class="page">
+
+  <!-- ══════════════════ CARD ══════════════════ -->
+  <!--
+    PERSONALISE YOUR CARD
+    ─────────────────────
+    Edit the values in the CARD object in the <script> block at the bottom
+    of this file (search for "Edit your details here").
+    All text on the card is driven from that single object.
+  -->
+  <article class="card" aria-label="Business Card">
+    <div class="card-body">
+
+      <!-- Header ornament -->
+      <header class="hdr">
+        <span class="hdr-ornament" aria-hidden="true">— ✦ —</span>
+        <span class="hdr-label">Card of Introduction</span>
+      </header>
+
+      <div class="rule-double"></div>
+
+      <!-- Name & title -->
+      <section class="name-block">
+        <h1 class="card-name" id="js-name">Your Name</h1>
+        <p  class="card-jobtitle" id="js-title">Title &amp; Role</p>
+        <p  class="card-company"  id="js-company">Company or Firm</p>
+      </section>
+
+      <div class="rule-double"></div>
+
+      <!-- Contact entries -->
+      <ul class="contact-list" aria-label="Contact information">
+        <li>
+          <a class="clink" id="js-email-link" href="mailto:email@example.com">
+            <span class="c-icon" aria-hidden="true">✉</span>
+            <span class="c-label">Email</span>
+            <span class="c-value" id="js-email">email@example.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="clink" id="js-phone-link" href="tel:+15550000000">
+            <span class="c-icon" aria-hidden="true">☎</span>
+            <span class="c-label">Tel</span>
+            <span class="c-value" id="js-phone">+1 (555) 000-0000</span>
+          </a>
+        </li>
+        <li>
+          <a class="clink" id="js-web-link" href="https://yourwebsite.com" target="_blank" rel="noopener">
+            <span class="c-icon" aria-hidden="true">⌖</span>
+            <span class="c-label">Web</span>
+            <span class="c-value" id="js-web">yourwebsite.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="clink" id="js-li-link" href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener">
+            <span class="c-icon" style="font-family:'Cinzel',serif;font-size:9px;font-weight:600" aria-hidden="true">in</span>
+            <span class="c-label">LinkedIn</span>
+            <span class="c-value" id="js-li">linkedin.com/in/yourhandle</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="rule-single"></div>
+
+      <!-- Wax seal -->
+      <div class="seal-row" aria-hidden="true">
+        <svg class="seal-svg" width="68" height="68" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Jagged wax edge -->
+          <polygon fill="#8B1A2F"
+            points="50,4 57,11 63.5,5 67.5,13.5 75,9.5 75.5,18.5 83.5,17 81.5,26 89.5,27.5 84,35.5 91,40 83,44.5 88.5,51 80,53.5 84,61.5 75,61.5 75.5,70 66.5,68.5 64.5,77 56,73.5 52,81.5 50,76 48,81.5 44,73.5 35.5,77 33.5,68.5 24.5,70 25,61.5 16,61.5 20,53.5 11.5,51 17,44.5 9,40 16,35.5 10.5,27.5 18.5,26 16.5,17 24.5,18.5 25,9.5 32.5,13.5 36.5,5 43,11"
+          />
+          <!-- Inner circles -->
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="50" cy="50" r="33" fill="none" stroke="#C9A84C" stroke-width="0.75"/>
+          <!-- Monogram (initials placeholder — YN) -->
+          <text x="50" y="57" text-anchor="middle" dominant-baseline="middle"
+                font-family="'Cinzel','Times New Roman',serif" font-size="20" font-weight="900"
+                fill="#F2E0B6" id="js-seal-initials">YN</text>
+          <!-- Circular inscription -->
+          <defs>
+            <path id="seal-arc" d="M50,50 m-29,0 a29,29 0 1,1 58,0 a29,29 0 1,1 -58,0"/>
+          </defs>
+          <text font-size="5" fill="#C9A84C" font-family="'Cinzel','Times New Roman',serif" letter-spacing="2.5">
+            <textPath href="#seal-arc" startOffset="5%">SIGILLUM · PERSONALIS · MMXXV ·</textPath>
+          </text>
+        </svg>
       </div>
 
-      <div class="divider">
-        <div class="divider-line"></div>
-        <div class="divider-ornament">&#10022; &#10022; &#10022;</div>
-        <div class="divider-line"></div>
-      </div>
+    </div><!-- /card-body -->
+  </article>
 
-      <div class="card-body">
-        <div class="focus-areas">
-          <div class="focus-label">Interests</div>
-          <div class="focus-list">Tech Policy &bull; Civic Tech &bull; Software Engineering</div>
-        </div>
-
-        <div class="contact-grid">
-          <a class="btn" href="mailto:ezc2107@columbia.edu">
-            <span class="btn-icon">&#9993;</span>
-            <span class="btn-text">
-              <span class="btn-label">Email</span>
-              <span class="btn-value">ezc2107@columbia.edu</span>
-            </span>
-          </a>
-          <a class="btn" href="https://github.com/ITS-EZC" target="_blank" rel="noopener">
-            <span class="btn-icon">&#9670;</span>
-            <span class="btn-text">
-              <span class="btn-label">GitHub</span>
-              <span class="btn-value">github.com/ITS-EZC</span>
-            </span>
-          </a>
-          <a class="btn" href="https://www.linkedin.com/in/emericzchang/" target="_blank" rel="noopener">
-            <span class="btn-icon">in</span>
-            <span class="btn-text">
-              <span class="btn-label">LinkedIn</span>
-              <span class="btn-value">linkedin.com/in/emericchang</span>
-            </span>
-          </a>
-          <a class="btn" href="tel:+6508420032">
-            <span class="btn-icon">&#9742;</span>
-            <span class="btn-text">
-              <span class="btn-label">Phone</span>
-              <span class="btn-value">(650) 842-0032</span>
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <div class="card-footer">
-        <div class="footer-text">Columbia University &mdash; New York, NY</div>
-      </div>
-
-    </div>
+  <!-- Action buttons -->
+  <div class="actions" role="toolbar" aria-label="Card actions">
+    <button class="btn" onclick="shareCard()">Share</button>
+    <button class="btn" onclick="saveContact()">Save Contact</button>
+    <button class="btn" onclick="toggleQR()">QR Code</button>
   </div>
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(() => console.log('Service Worker Registered'));
+  <!-- QR code panel -->
+  <div class="qr-panel" id="qr-panel" role="complementary" aria-label="QR Code">
+    <div class="qr-label">Scan to Save Contact</div>
+    <div id="qr-target"></div>
+    <p class="qr-subtext">Point camera at seal to import contact</p>
+  </div>
+
+  <!-- Android install banner (shown automatically when criteria met) -->
+  <div id="install-banner">
+    <button class="btn btn-install" id="install-btn">Install as App</button>
+  </div>
+
+  <p class="footer">
+    Serve over HTTPS or host on GitHub Pages · Netlify · Vercel<br>
+    to enable full mobile app installation
+  </p>
+
+</div><!-- /page -->
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- QR code library (requires internet; gracefully skipped offline) -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+<script>
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Edit your details here
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+const CARD = {
+  name:        'Emeric Chang',
+  initials:    'EC',
+  title:       'Student | Developer | Leader | Writer',
+  company:     'Columbia University',
+  email:       'emericchang@columbia.edu',
+  phone:       '+1 (650) 842-0032',
+  phoneDial:   '+16508420032',
+  website:     'emericchang.com',
+  websiteUrl:  'https://emeric-chang-personal-website.vercel.app/#about',
+  linkedin:    'linkedin.com/in/emericzchang',
+  linkedinUrl: 'https://www.linkedin.com/in/emericzchang/',
+};
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Populate card from CARD object ── */
+(function populate() {
+  document.getElementById('js-name').textContent       = CARD.name;
+  document.getElementById('js-title').textContent      = CARD.title;
+  document.getElementById('js-company').textContent    = CARD.company;
+  document.getElementById('js-email').textContent      = CARD.email;
+  document.getElementById('js-phone').textContent      = CARD.phone;
+  document.getElementById('js-web').textContent        = CARD.website;
+  document.getElementById('js-li').textContent         = CARD.linkedin;
+  document.getElementById('js-seal-initials').textContent = CARD.initials;
+  document.getElementById('js-email-link').href        = 'mailto:' + CARD.email;
+  document.getElementById('js-phone-link').href        = 'tel:'    + CARD.phoneDial;
+  document.getElementById('js-web-link').href          = CARD.websiteUrl;
+  document.getElementById('js-li-link').href           = CARD.linkedinUrl;
+  document.title = CARD.name + ' – Card of Introduction';
+})();
+
+/* ── vCard builder ── */
+function makeVCard() {
+  return [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'FN:'    + CARD.name,
+    'TITLE:' + CARD.title,
+    'ORG:'   + CARD.company,
+    'EMAIL;TYPE=INTERNET,PREF:' + CARD.email,
+    'TEL;TYPE=VOICE,PREF:'      + CARD.phoneDial,
+    'URL:'   + CARD.websiteUrl,
+    'X-SOCIALPROFILE;TYPE=linkedin:' + CARD.linkedinUrl,
+    'END:VCARD',
+  ].join('\r\n');
+}
+
+/* ── Save Contact (.vcf) ── */
+function saveContact() {
+  const blob = new Blob([makeVCard()], { type: 'text/vcard;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = CARD.name.replace(/\s+/g, '-') + '.vcf';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  toast('Contact saved');
+}
+
+/* ── Share ── */
+async function shareCard() {
+  const payload = {
+    title: CARD.name + ' – Card of Introduction',
+    text:  [CARD.name, CARD.title, CARD.company, CARD.email, CARD.phone].join('\n'),
+    url:   location.href,
+  };
+  if (navigator.share) {
+    try { await navigator.share(payload); return; } catch (e) {
+      if (e.name === 'AbortError') return; // user cancelled — not an error
     }
-  </script>
+  }
+  try {
+    await navigator.clipboard.writeText(location.href);
+    toast('Link copied to clipboard');
+  } catch {
+    toast('Share: ' + location.href);
+  }
+}
+
+/* ── QR Code ── */
+let qrReady = false;
+function toggleQR() {
+  const panel = document.getElementById('qr-panel');
+  panel.classList.toggle('open');
+  if (panel.classList.contains('open') && !qrReady) buildQR();
+}
+
+function buildQR() {
+  qrReady = true;
+  const target = document.getElementById('qr-target');
+  if (typeof QRCode === 'undefined') {
+    target.innerHTML = '<p style="font:italic 14px/1.6 \'EB Garamond\',serif;color:#8B1A2F;text-align:center;padding:8px 0">QR generation requires<br>an internet connection</p>';
+    return;
+  }
+  const canvas = document.createElement('canvas');
+  target.appendChild(canvas);
+  QRCode.toCanvas(canvas, makeVCard(), {
+    width: 186, margin: 1,
+    color: { dark: '#1A2744', light: '#F2E0B6' },
+  }, function(err) {
+    if (err) {
+      canvas.remove();
+      target.innerHTML = '<p style="font:italic 13px \'EB Garamond\',serif;color:#8B1A2F">Unable to generate QR</p>';
+    }
+  });
+}
+
+/* ── Toast notification ── */
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+}
+
+/* ── PWA Web App Manifest (dynamic blob) ── */
+(function injectManifest() {
+  const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#1A2744"/><polygon fill="#8B1A2F" points="256,20 275,60 315,25 330,70 372,45 374,95 418,88 412,138 458,143 440,190 486,207 456,248 494,270 456,285 478,330 436,335 442,385 398,378 394,428 352,412 336,460 256,382 176,460 160,412 118,428 114,378 70,385 76,335 34,330 56,285 18,270 56,248 26,207 72,190 54,143 100,138 94,88 138,95 140,45 182,70 197,25 237,60"/><circle cx="256" cy="256" r="190" fill="none" stroke="#C9A84C" stroke-width="8"/><circle cx="256" cy="256" r="160" fill="none" stroke="#C9A84C" stroke-width="3"/><text x="256" y="310" text-anchor="middle" font-size="130" fill="#F2E0B6" font-family="serif">✦</text></svg>`;
+  const iconUri = 'data:image/svg+xml,' + encodeURIComponent(iconSvg);
+  const manifest = {
+    name: CARD.name + ' – Card of Introduction',
+    short_name: CARD.name || 'My Card',
+    description: 'Personal digital business card',
+    display: 'standalone',
+    orientation: 'portrait-primary',
+    background_color: '#1A2744',
+    theme_color: '#1A2744',
+    start_url: '.',
+    icons: [
+      { src: iconUri, sizes: '192x192',  type: 'image/svg+xml' },
+      { src: iconUri, sizes: '512x512',  type: 'image/svg+xml', purpose: 'maskable any' },
+    ],
+  };
+  try {
+    const blob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
+    const link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = URL.createObjectURL(blob);
+    document.head.appendChild(link);
+  } catch {}
+})();
+
+/* ── Android install prompt ── */
+let installEvt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  installEvt = e;
+  document.getElementById('install-banner').style.display = 'block';
+});
+document.getElementById('install-btn').addEventListener('click', async () => {
+  if (!installEvt) return;
+  installEvt.prompt();
+  const { outcome } = await installEvt.userChoice;
+  installEvt = null;
+  if (outcome === 'accepted') {
+    document.getElementById('install-banner').style.display = 'none';
+    toast('App installed');
+  }
+});
+window.addEventListener('appinstalled', () => {
+  document.getElementById('install-banner').style.display = 'none';
+  toast('App installed successfully');
+});
+
+/*
+  Service Worker note
+  ───────────────────
+  A blob: URL service worker can't be scoped to file:// or http:// origins,
+  so offline caching via SW only works when this file is hosted over HTTPS
+  (e.g., GitHub Pages). iOS "Add to Home Screen" works regardless via the
+  apple-mobile-web-app-* meta tags above — no SW required for that.
+
+  To host for free:
+    GitHub Pages → push this file to a repo → Settings → Pages → Deploy from main
+    Netlify      → drag the folder onto netlify.com/drop
+*/
+</script>
+
 </body>
 </html>
