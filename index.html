@@ -332,6 +332,10 @@ const CARD = {
 })();
 
 function makeVCard() {
+  const parts = CARD.name.trim().split(/\s+/);
+  const last  = parts.length > 1 ? parts.at(-1) : '';
+  const first = parts.length > 1 ? parts.slice(0, -1).join(' ') : parts[0];
+  
   return [
     'BEGIN:VCARD', 'VERSION:3.0',
     `N:${last};${first};;;`,
