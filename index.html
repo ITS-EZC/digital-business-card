@@ -334,6 +334,7 @@ const CARD = {
 function makeVCard() {
   return [
     'BEGIN:VCARD', 'VERSION:3.0',
+    `N:${last};${first};;;`,
     'FN:'    + CARD.name,
     'TITLE:' + CARD.title,
     'ORG:'   + CARD.company,
